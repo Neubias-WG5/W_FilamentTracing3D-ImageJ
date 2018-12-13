@@ -1,5 +1,5 @@
 {
-  "command-line": "python wrapper.py CYTOMINE_HOST CYTOMINE_PUBLIC_KEY CYTOMINE_PRIVATE_KEY CYTOMINE_ID_PROJECT CYTOMINE_ID_SOFTWARE ",
+  "command-line": "python wrapper.py CYTOMINE_HOST CYTOMINE_PUBLIC_KEY CYTOMINE_PRIVATE_KEY CYTOMINE_ID_PROJECT CYTOMINE_ID_SOFTWARE METRICS_GATING_DIST ",
   "inputs": [
     {
       "name": "Cytomine host",
@@ -48,6 +48,17 @@
       "value-key": "@ID",
       "optional": false,
       "id": "cytomine_id_software",
+      "type": "Number",
+      "command-line-flag": "--@id"
+    },
+    {
+      "default-value": 5,
+      "name": "Gating distance",
+      "description": "The gating distance to apply when computing the metrics",
+      "set-by-server": false,
+      "value-key": "@ID",
+      "optional": true,
+      "id": "metrics_gating_dist",
       "type": "Number",
       "command-line-flag": "--@id"
     }
