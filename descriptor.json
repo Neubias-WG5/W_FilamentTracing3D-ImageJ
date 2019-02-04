@@ -61,6 +61,17 @@
       "id": "metrics_gating_dist",
       "type": "Number",
       "command-line-flag": "--@id"
+    },
+    {
+      "default-value": 30,
+      "name": "Background level",
+      "description": "The maximum grayscale level of the background",
+      "set-by-server": false,
+      "value-key": "@ID",
+      "optional": true,
+      "id": "bcklvl",
+      "type": "Number",
+      "command-line-flag": "--@id"
     }
   ],
   "name": "FilamentTracing3D-ImageJ",
