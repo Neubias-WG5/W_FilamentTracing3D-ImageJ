@@ -52,17 +52,6 @@
       "command-line-flag": "--@id"
     },
     {
-      "default-value": 5,
-      "name": "Gating distance",
-      "description": "The gating distance to apply when computing the metrics",
-      "set-by-server": false,
-      "value-key": "@ID",
-      "optional": true,
-      "id": "metrics_gating_dist",
-      "type": "Number",
-      "command-line-flag": "--@id"
-    },
-    {
       "default-value": 2,
       "name": "Gblur",
       "description": "Gaussian blur radius",
