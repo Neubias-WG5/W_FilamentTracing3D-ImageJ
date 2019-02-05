@@ -29,6 +29,7 @@ for(i=0; i<images.length; i++) {
 	image = images[i];
 	if (endsWith(image, ".tif")) {
 		// Workflow
+		open(inputDir + "/" + image);
 		run("Gaussian Blur 3D...", "x="+d2s(Gblur,2)+" y="+d2s(Gblur,2)+" z="+d2s(Gblur,2));
 		setThreshold(BckLvl, 255);
 		setOption("BlackBackground", false);
