@@ -63,6 +63,18 @@
       "command-line-flag": "--@id"
     },
     {
+      "default-value": 2,
+      "name": "Gblur",
+      "description": "Gaussian blur radius",
+      "set-by-server": false,
+      "value-key": "@ID",
+      "optional": true,
+      "id": "gblur",
+      "type": "Number",
+      "command-line-flag": "--@id"
+    }
+    ,
+    {
       "default-value": 30,
       "name": "Background level",
       "description": "The maximum grayscale level of the background",
