@@ -3,8 +3,8 @@
 // Date: 04/02/2019
 
 // Path to input image and result table
-inputDir = "/data";
-outputDir = "/out";
+inputDir = "/dockershare/667/in/";
+outputDir = "/dockershare/667/out/";
 
 // Functional parameters
 Gblur = 2;
@@ -36,9 +36,9 @@ for(i=0; i<images.length; i++) {
 		run("Skeletonize (2D/3D)");
 		rename("Skel");
 		run("Analyze Skeleton (2D/3D)", "prune=none");
-		selectImage("Skel");
-		close();
-		
+		save(outputDir + "/" + image);		
+		// Cleanup
+		run("Close All");
 	}
 }
 
