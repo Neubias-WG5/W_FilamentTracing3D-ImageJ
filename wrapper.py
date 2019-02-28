@@ -33,7 +33,7 @@ def main(argv):
 
         # 4. Upload the annotation and labels to Cytomine (annotations are extracted from the mask using
         # the AnnotationExporter module)
-        upload_data(problem_cls, nj, in_images, out_path, **nj.flags, is_2d=is_2d, projection=5, monitor_params={
+        upload_data(problem_cls, nj, in_images, out_path, **nj.flags, is_2d=is_2d, projection=-1, monitor_params={
             "start": 60, "end": 90, "period": 0.1
         })
 
