@@ -5,24 +5,6 @@ FROM python:3.6
 RUN apt-get update && apt-get install openjdk-8-jdk -y && apt-get clean
 
 # ---------------------------------------------------------------------------------------------------------------------
-# Install Cytomine python client
-RUN git clone https://github.com/cytomine-uliege/Cytomine-python-client.git
-RUN cd /Cytomine-python-client && git checkout tags/v2.2.0 && pip install .
-RUN rm -r /Cytomine-python-client
-
-# ---------------------------------------------------------------------------------------------------------------------
-# Install Neubias-W5-Utilities (annotation exporter, compute metrics, helpers,...)
-RUN git clone https://github.com/Neubias-WG5/neubiaswg5-utilities.git
-RUN cd /neubiaswg5-utilities/ && git checkout tags/v0.5.4 && pip install .
-
-# install utilities binaries
-RUN chmod +x /neubiaswg5-utilities/bin/*
-RUN cp /neubiaswg5-utilities/bin/* /usr/bin/
-
-# cleaning
-RUN rm -r /neubiaswg5-utilities
-
-# ---------------------------------------------------------------------------------------------------------------------
 # Fiji installation
 # Install virtual X server
 RUN apt-get update && apt-get install -y unzip xvfb libx11-dev libxtst-dev libxrender-dev
@@ -41,6 +23,29 @@ RUN mkdir -p /fiji/data
 
 # Clean up
 RUN rm fiji-linux64-20170530.zip
+
+# ---------------------------------------------------------------------------------------------------------------------
+# Install Cytomine python client
+RUN git clone https://github.com/cytomine-uliege/Cytomine-python-client.git
+RUN cd /Cytomine-python-client && git checkout tags/v2.2.0 && pip install .
+RUN rm -r /Cytomine-python-client
+
+# ---------------------------------------------------------------------------------------------------------------------
+# Install Neubias-W5-Utilities (annotation exporter, compute metrics, helpers,...)
+RUN git clone https://github.com/Neubias-WG5/neubiaswg5-utilities.git \
+    && cd /neubiaswg5-utilities/ \
+    && git checkout tags/v0.5.6 \
+    && pip install .
+
+# Install skan from master branch to get Skeleton
+RUN pip install git+https://github.com/jni/skan
+
+# install utilities binaries
+RUN chmod +x /neubiaswg5-utilities/bin/*
+RUN cp /neubiaswg5-utilities/bin/* /usr/bin/
+
+# cleaning
+RUN rm -r /neubiaswg5-utilities
 
 # ---------------------------------------------------------------------------------------------------------------------
 # Install Macro
