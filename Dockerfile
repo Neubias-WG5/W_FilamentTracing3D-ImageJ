@@ -27,14 +27,14 @@ RUN rm fiji-linux64-20170530.zip
 # ---------------------------------------------------------------------------------------------------------------------
 # Install Cytomine python client
 RUN git clone https://github.com/cytomine-uliege/Cytomine-python-client.git
-RUN cd /Cytomine-python-client && git checkout tags/v2.2.0 && pip install .
+RUN cd /Cytomine-python-client && git checkout tags/v2.3.0.poc.1 && pip install .
 RUN rm -r /Cytomine-python-client
 
 # ---------------------------------------------------------------------------------------------------------------------
 # Install Neubias-W5-Utilities (annotation exporter, compute metrics, helpers,...)
 RUN git clone https://github.com/Neubias-WG5/neubiaswg5-utilities.git \
     && cd /neubiaswg5-utilities/ \
-    && git checkout tags/v0.6.5 \
+    && git checkout tags/v0.8.0 \
     && pip install .
 
 # Install skan from master branch to get Skeleton
