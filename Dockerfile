@@ -1,9 +1,7 @@
-FROM python:3.6-stretch
+FROM python:3.6.9-stretch
 
 # ---------------------------------------------------------------------------------------------------------------------
 # Install Java
-#RUN apt-get update && apt-get install -y software-properties-common
-#RUN apt-get update && add-apt-repository ppa:webupd8team/java
 RUN apt-get update && apt-get install openjdk-8-jdk -y && apt-get clean
 
 # ---------------------------------------------------------------------------------------------------------------------

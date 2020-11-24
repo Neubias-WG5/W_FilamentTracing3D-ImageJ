@@ -35,8 +35,8 @@ for(i=0; i<images.length; i++) {
 		setOption("BlackBackground", false);
 		run("Convert to Mask", "method=Default background=Dark");
 		run("Skeletonize (2D/3D)");
-		rename("Skel");
-		run("Analyze Skeleton (2D/3D)", "prune=none");
+		//rename("Skel");
+		//run("Analyze Skeleton (2D/3D)", "prune=none");
 		save(outputDir + "/" + image);		
 		// Cleanup
 		run("Close All");
