@@ -1,7 +1,9 @@
-FROM python:3.6
+FROM python:3.6-stretch
 
 # ---------------------------------------------------------------------------------------------------------------------
 # Install Java
+#RUN apt-get update && apt-get install -y software-properties-common
+#RUN apt-get update && add-apt-repository ppa:webupd8team/java
 RUN apt-get update && apt-get install openjdk-8-jdk -y && apt-get clean
 
 # ---------------------------------------------------------------------------------------------------------------------
@@ -27,25 +29,22 @@ RUN rm fiji-linux64-20170530.zip
 # ---------------------------------------------------------------------------------------------------------------------
 # Install Cytomine python client
 RUN git clone https://github.com/cytomine-uliege/Cytomine-python-client.git
-RUN cd /Cytomine-python-client && git checkout tags/v2.2.0 && pip install .
+RUN cd /Cytomine-python-client && git checkout tags/v2.7.3 && pip install .
 RUN rm -r /Cytomine-python-client
 
 # ---------------------------------------------------------------------------------------------------------------------
 # Install Neubias-W5-Utilities (annotation exporter, compute metrics, helpers,...)
-RUN git clone https://github.com/Neubias-WG5/neubiaswg5-utilities.git \
-    && cd /neubiaswg5-utilities/ \
-    && git checkout tags/v0.5.6 \
+RUN git clone https://github.com/Neubias-WG5/biaflows-utilities.git \
+    && cd /biaflows-utilities/ \
+    && git checkout tags/v0.9.0-alpha.5 \
     && pip install .
 
-# Install skan from master branch to get Skeleton
-RUN pip install git+https://github.com/jni/skan
-
 # install utilities binaries
-RUN chmod +x /neubiaswg5-utilities/bin/*
-RUN cp /neubiaswg5-utilities/bin/* /usr/bin/
+RUN chmod +x /biaflows-utilities/bin/*
+RUN cp /biaflows-utilities/bin/* /usr/bin/
 
 # cleaning
-RUN rm -r /neubiaswg5-utilities
+RUN rm -r /biaflows-utilities
 
 # ---------------------------------------------------------------------------------------------------------------------
 # Install Macro
