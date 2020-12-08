@@ -34,7 +34,7 @@ RUN rm -r /Cytomine-python-client
 # Install Neubias-W5-Utilities (annotation exporter, compute metrics, helpers,...)
 RUN git clone https://github.com/Neubias-WG5/biaflows-utilities.git \
     && cd /biaflows-utilities/ \
-    && git checkout tags/v0.9.0-alpha.5 \
+    && git checkout tags/v0.9.1 \
     && pip install .
 
 # install utilities binaries
